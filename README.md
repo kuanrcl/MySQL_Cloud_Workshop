@@ -4,7 +4,7 @@ MySQL Database Service Workshop
 ## Lab Structure
 |||
 | ------------- | ------------------------------------------------------- |
-| [Lab1](Lab1) | Running Oracle Analytics Cloud on MDS
+| [Lab1](lab1) | Running Oracle Analytics Cloud on MDS
 | [Lab2](Lab2) | MySQL Administration     
 | [Lab4](Lab4) | MySQL Enterprise Backup
 | [Lab5](Lab5) | MySQL Enterprise Monitor
