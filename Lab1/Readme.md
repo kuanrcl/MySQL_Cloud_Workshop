@@ -38,9 +38,17 @@ mysql -uadmin -h<mds-hostname> -P3306 -p < employees.sql
 ## Provision OAC instance
 
 1. First of all, create a policy to provision OAC instance
-2. Click on the hamburger on the top left corner of OCI console, navigate to Identify ->
+2. Click on the hamburger on the top left corner of OCI console, navigate to Identify -> Policies
+3. Specify a policy name such as **oac-policy**, enter the folloing policy in the policy editor by clicking on **customized**
+```
+allow group Administrator-Group to manage analytics-instances in tenancy
+allow group Administrator-Group to manage analytics-instances in compartment MyOracleAnalytics
+```
+
 ![policy](img/policy.png)
 
-3. Logon to OCI console to provision OAC instance
+4. Once you created the policy, click of the hamburger on the top left corner of OCI console, navigate to Analytics-> Analytics-Cloud
+![oac-11](img/oac-11.png)
 
+5. Specify the name of the oac, just leave all the default options, and click on **Create**
 ![oac-10](img/oac-10.png)
