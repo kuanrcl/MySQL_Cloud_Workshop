@@ -36,6 +36,11 @@ mysql -uadmin -h<mds-hostname> -P3306 -p < employees.sql
 ```
 
 ## Provision OAC instance
-Logon to OCI console to provision OAC instance
 
-![oac-9](img/oac-9.jpg)
+1. First of all, create a policy to provision OAC instance
+2. Click on the hamburger on the top left corner of OCI console, navigate to Identify ->
+![policy](img/policy.png)
+
+3. Logon to OCI console to provision OAC instance
+
+![oac-10](img/oac-10.png)
