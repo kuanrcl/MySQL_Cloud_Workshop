@@ -36,3 +36,4 @@ mysql -uadmin -h<mds-hostname> -P3306 -p < employees.sql
 ```
 
 ## Provision OAC instance
+Logon to OCI console to provision OAC instance
