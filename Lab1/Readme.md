@@ -47,8 +47,15 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 
 ![policy](img/policy.png)
 
-4. Once you created the policy, click of the hamburger on the top left corner of OCI console, navigate to Analytics-> Analytics-Cloud
+4. Once you created the policy, click of the hamburger on the top left corner of OCI console, navigate to **Analytics-> Analytics Clouds**
 ![oac-11](img/oac-11.png)
 
-5. Specify the name of the oac, just leave all the default options, and click on **Create**
+5. Specify the name of the OAC instance such as **myoac**, just leave all the default options, and click on **Create**
 ![oac-10](img/oac-10.png)
+
+# Build Dashboard on OAC
+
+1. Navigate to **hamburger->Analytics->Analytics Clouds**
+2. Select the OAC instance you provisioned to access the OAC console
+![oac-12](img/oac-12.png)
+
