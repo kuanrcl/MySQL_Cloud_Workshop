@@ -107,13 +107,16 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 ![oac-18](img/oac-18.png)
 
 
-9. Select the database **covid19**
+9. Select the database **covid19**, and select **Enter SQL**
 
 ![oac-21](img/oac-21.png)
 
-10. We will create a custom data set by using SQL join statement
+10. We will create a custom data set by using SQL join statement with the following SQL
+```
+select p.id, p.age, p.gender, p.admin2, v.province, v.countryname, c.continental, p.acquireddate, p.recovereddate, p.passawaydate from covid19.patient p, covid19.province v, covid19.country c where p.provinceid=v.id and v.countryid=c.id;
+```
 
-![oac-25](img/oac26.png)
+![oac-25](img/oac-26.png)
 
 11. You are now ready to build the dashboard
 You can pick and choose columns from the left pane to build your dashboard
