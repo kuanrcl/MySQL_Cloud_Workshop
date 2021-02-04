@@ -107,13 +107,15 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 ![oac-18](img/oac-18.png)
 
 
-9. Select the table **caseww**
+9. Select the database **covid19**
 
 ![oac-21](img/oac-21.png)
 
-10. Select all the columns into the data set
+10. Select the table **caseww** and all the columns into the data set, **save** the data set
 
-![oac-22](img/oac-22.png)
+![oac-22](img/oac-23.png)
+
+11. You are now ready to build the dashboard
 
 ## [Optional] Additional database import to MDS
 
