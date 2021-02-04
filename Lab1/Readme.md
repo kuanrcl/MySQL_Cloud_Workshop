@@ -92,14 +92,14 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 
 5. Specify the connections details
 
+![oac-16](img/oac-16.png)
+
+6. Next we are ready to build the dashboard on MDS HeatWave by selecting **Create->Project**
+
 ![oac-17](img/oac-17.png)
 
 
-5. Next we are ready to build the dashboard on MDS HeatWave by selecting **Create->Project**
-
-
 5. Select **Create Data Set**
-![oac-16](img/oac-16.png)
 
 6. Select the **Connection** created earlier
 
