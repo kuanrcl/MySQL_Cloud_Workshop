@@ -75,9 +75,11 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 # Build Dashboard on OAC
 
 1. Navigate to **hamburger->Analytics->Analytics Clouds**
+
 ![oac-12](img/oac-12.png)
 
 2. Select the OAC instance you provisioned to access the OAC console by clicking on **Analytics Home Page** 
+
 ![oac-13](img/oac-13.png)
 
 3. First of all, we need to create a **Connection** to HeatWave to build a dashboard
@@ -85,6 +87,7 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 ![oac-14](img/oac-14.png)
 
 4. Specify the connections details
+
 ![oac-15](img/oac-15.png)
 
 5. Next we are ready to build the dashboard on MDS HeatWave by selecting **Create->Project**
