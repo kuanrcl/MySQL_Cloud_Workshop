@@ -62,6 +62,7 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 ![oac-13](img/oac-13.png)
 
 3. First of all, we need to create a **Connection** to HeatWave to build a dashboard
+
 ![oac-14](img/oac-14.png)
 
 
