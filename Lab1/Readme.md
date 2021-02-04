@@ -27,6 +27,33 @@ create user oac_user@'%' identified with mysql_native_password by 'oac_secret';
 grant all privileges on *.* to oac@'%';
 ```
 
+5. configure the mysqlrouter
+```
+sudo cat << EOF >> /etc/mysqlrouter/mysqlrouter.conf 
+[routing:redirect_classic]
+bind_address = 0.0.0.0:3306
+destinations = 10.0.0.98:3306
+routing_strategy=first-available
+
+[routing:redirect_xprotocol]
+bind_address = 0.0.0.0:33060
+destinations = 10.0.0.98:33060
+protocol = x
+routing_strategy=first-available
+EOF
+```
+
+6. Add ingress rule in your security list of your VCN
+Add an ingress rule to allow traffic in your private subnet
+
+7. Start mysqlrouter
+```
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
+sudo mysqlrouter &
+mysql -uadmin -h127.0.0.1 -P3306 -p
+```
+
 ## Provision OAC instance
 
 1. First of all, create a policy to provision OAC instance
@@ -57,8 +84,11 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 
 ![oac-14](img/oac-14.png)
 
-4. Next we are ready to build the dashboard on MDS HeatWave by selecting **Create->Project**
+4. Specify the connections details
 ![oac-15](img/oac-15.png)
+
+5. Next we are ready to build the dashboard on MDS HeatWave by selecting **Create->Project**
+
 
 5. Select **Create Data Set**
 ![oac-16](img/oac-16.png)
