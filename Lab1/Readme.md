@@ -55,7 +55,9 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 
 # Build Dashboard on OAC
 
-1. Navigate to **hamburger->Analytics->Analytics Clouds**
-2. Select the OAC instance you provisioned to access the OAC console
+1. Navigate to **hamburger->Analytics->Analytics Clouds**, select the OAC instance you provisioned to access the OAC console by clicking on **Analytics Home Page**
 ![oac-12](img/oac-12.png)
+
+2. First of all, we need to create a **Connection** to HeatWave to build a dashboard
+![oac-13](img/oac-13.png)
 
