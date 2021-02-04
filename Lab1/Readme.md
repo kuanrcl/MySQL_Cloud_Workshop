@@ -111,11 +111,14 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 
 ![oac-21](img/oac-21.png)
 
-10. Select the table **caseww** and all the columns into the data set, **save** the data set
+10. We will create a custom data set by using SQL join statement
 
-![oac-22](img/oac-23.png)
+![oac-25](img/oac26.png)
 
 11. You are now ready to build the dashboard
+You can pick and choose columns from the left pane to build your dashboard
+
+![oac-26](img/oac-25.png)
 
 ## [Optional] Additional database import to MDS
 
