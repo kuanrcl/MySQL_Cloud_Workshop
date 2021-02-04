@@ -98,17 +98,18 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 
 ![oac-17](img/oac-17.png)
 
-7. Select the **Connection** created earlier
+7. Select **Create Data Set**
+
+![oac-20](img/oac-20.png)
+
+8. Select the **Connection** created earlier
 
 ![oac-18](img/oac-18.png)
 
-8. Select **Create Data Set**
-
-![oac-19](img/oac-19.png)
 
 9. Select all the columns in the data set
 
-![oac-20](img/oac-20.png)
+![oac-21](img/oac-21.png)
 
 
 ## [Optional] Additional database import to MDS
