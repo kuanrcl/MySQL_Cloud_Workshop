@@ -70,6 +70,9 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 ![oac-11](img/oac-11.png)
 
 5. Specify the name of the OAC instance such as **myoac**, just leave all the default options, and click on **Create**
+**Please note that the maximum number of records for 1 OCPU shape of OAC is 125,000 records**
+More informatin here: https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsom/create-services-oracle-analytics-cloud.html#GUID-164D8568-9AE3-4A74-9F1A-0D87B78713C9
+
 ![oac-10](img/oac-10.png)
 
 # Build Dashboard on OAC
@@ -115,6 +118,7 @@ allow group Administrator-Group to manage analytics-instances in compartment MyO
 ```
 select p.id, p.age, p.gender, p.admin2, v.province, v.countryname, c.continental, p.acquireddate, p.recovereddate, p.passawaydate from covid19.patient p, covid19.province v, covid19.country c where p.provinceid=v.id and v.countryid=c.id;
 ```
+Give it a name and make sure you select **Live** in the **Data Access** field
 
 ![oac-25](img/oac-26.png)
 
