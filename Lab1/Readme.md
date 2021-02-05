@@ -2,56 +2,21 @@
 Oracle Analytics Cloud (OAC) is an enterprise analytics solution for building analytics dashboard, pixel-perfect high quality reports. OAC provides Machine Learning algorithm to exploit insights from your data
 
 In order to build analytics dashboard using OAC on MDS HeatWave, we need to do the following
-1. Provision a bastion host to connect to MDS/HeatWave
+1. Provision a Load Balancer to connect to MDS
 2. Create a user account on MDS
-3. Create a MDS connection on OAC
+3. Provision an OAC instance
 4. Starting building your dashboard
 
-## Provision a bastion host
-1. Provision a compute instance on OCI with a Public IP address
-2. ssh to the compute instance using **opc** user with the private key you created in step 1
-3. Install mysql clients
-```
-wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
-sudo rpm -Uvh mysql80-community-release-el7-3.noarch.rpm
-sudo yum repolist all | grep mysql
-sudo yum-config-manager --enable mysql80-community
-sudo yum repolist enabled | grep mysql
-sudo yum install mysql-client mysql-shell mysql-router
-```
+## Provision Load Balancer
+The purpose of the Load Balancer is to forward traffics from internet to MDS in OCI private subnet
 
-4. Locate your MDS hostname to create an account
-```
-mysql -uadmin -hyour_mds_host_name -P3306 -p
-create user oac_user@'%' identified with mysql_native_password by 'oac_secret';
-grant all privileges on *.* to oac@'%';
-```
+1. Provision Load Balancer with **Public IP address** with a **TCP Listener** listening on port **3306**
+2. Define **Backend Set** with MDS instance details such as **IP Address** and **Port Number**
+3. Create a **Ingress rule** of allowing internet traffic (0.0.0.0/0) to **Port 3306**
+4. Test the connection from **mysql** client
 
-5. configure the mysqlrouter
 ```
-sudo cat << EOF >> /etc/mysqlrouter/mysqlrouter.conf 
-[routing:redirect_classic]
-bind_address = 0.0.0.0:3306
-destinations = 10.0.0.98:3306
-routing_strategy=first-available
-
-[routing:redirect_xprotocol]
-bind_address = 0.0.0.0:33060
-destinations = 10.0.0.98:33060
-protocol = x
-routing_strategy=first-available
-EOF
-```
-
-6. Add ingress rule in your security list of your VCN
-Add an ingress rule to allow traffic in your private subnet
-
-7. Start mysqlrouter
-```
-sudo systemctl stop firewalld
-sudo systemctl disable firewalld
-sudo mysqlrouter &
-mysql -uadmin -h127.0.0.1 -P3306 -p
+mysql -uadmin -h<public_ip_load_balancer> -P3306 -p
 ```
 
 ## Provision OAC instance
@@ -160,5 +125,52 @@ wget https://github.com/datacharmer/test_db/archive/master.zip
 unzip master.zip
 cd test_db-master
 mysql -uadmin -h<mds-hostname> -P3306 -p < employees.sql
+```
+
+## [Optional] Provision a bastion host to connect to MDS/HeatWave
+1. Provision a compute instance on OCI with a Public IP address
+2. ssh to the compute instance using **opc** user with the private key you created in step 1
+3. Install mysql clients
+```
+wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+sudo rpm -Uvh mysql80-community-release-el7-3.noarch.rpm
+sudo yum repolist all | grep mysql
+sudo yum-config-manager --enable mysql80-community
+sudo yum repolist enabled | grep mysql
+sudo yum install mysql-client mysql-shell mysql-router
+```
+
+4. Locate your MDS hostname to create an account
+```
+mysql -uadmin -hyour_mds_host_name -P3306 -p
+create user oac_user@'%' identified with mysql_native_password by 'oac_secret';
+grant all privileges on *.* to oac@'%';
+```
+
+5. configure the mysqlrouter
+```
+sudo cat << EOF >> /etc/mysqlrouter/mysqlrouter.conf 
+[routing:redirect_classic]
+bind_address = 0.0.0.0:3306
+destinations = 10.0.0.98:3306
+routing_strategy=first-available
+
+[routing:redirect_xprotocol]
+bind_address = 0.0.0.0:33060
+destinations = 10.0.0.98:33060
+protocol = x
+routing_strategy=first-available
+EOF
+```
+
+6. Add ingress rule in your security list of your VCN
+Add an ingress rule to allow traffic in your private subnet
+
+7. Start mysqlrouter
+```
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
+sudo mysqlrouter &
+mysql -uadmin -h127.0.0.1 -P3306 -p
 ```
 
