@@ -7,17 +7,6 @@ In order to build analytics dashboard using OAC on MDS HeatWave, we need to do t
 3. Provision an OAC instance
 4. Starting building your dashboard
 
-## Provision Load Balancer
-The purpose of the Load Balancer is to forward traffics from internet to MDS in OCI private subnet
-
-1. Provision Load Balancer with **Public IP address** with a **TCP Listener** listening on port **3306**
-2. Define **Backend Set** with MDS instance details such as **IP Address** and **Port Number**
-3. Create a **Ingress rule** of allowing internet traffic (0.0.0.0/0) to **Port 3306**
-4. Test the connection from **mysql** client
-
-```
-mysql -uadmin -h<public_ip_load_balancer> -P3306 -p
-```
 
 ## Provision OAC instance
 
@@ -40,6 +29,11 @@ More informatin here: https://docs.oracle.com/en/cloud/paas/analytics-cloud/acso
 
 ![oac-10](img/oac-10.png)
 
+6. Configure Private Access Channel (PAC) to access MDS in the private subnet
+Configure PAC to use the **Virtual Cloud Network** and the **Private Subnet** which MDS is provisioned, this PAC will be used to access the MDS in the private subnet. ** Be sure to add the DNS zone of the private subnet of MDS **
+
+![oac-28](img/oac-28.png)
+
 # Build Dashboard on OAC
 
 1. Navigate to **hamburger->Analytics->Analytics Clouds**
@@ -59,8 +53,9 @@ More informatin here: https://docs.oracle.com/en/cloud/paas/analytics-cloud/acso
 ![oac-15](img/oac-15.png)
 
 5. Specify the connections details
+Specify the hostname of MDS in FQDN such as mysql-xxx.oraclevpn.com
 
-![oac-16](img/oac-16.png)
+![oac-29](img/oac-29.png)
 
 6. Next we are ready to build the dashboard on MDS HeatWave by selecting **Create->Project**
 
@@ -173,4 +168,17 @@ sudo systemctl disable firewalld
 sudo mysqlrouter &
 mysql -uadmin -h127.0.0.1 -P3306 -p
 ```
+
+## [Optional] Provision Load Balancer
+The purpose of the Load Balancer is to forward traffics from internet to MDS in OCI private subnet
+
+1. Provision Load Balancer with **Public IP address** with a **TCP Listener** listening on port **3306**
+2. Define **Backend Set** with MDS instance details such as **IP Address** and **Port Number**
+3. Create a **Ingress rule** of allowing internet traffic (0.0.0.0/0) to **Port 3306**
+4. Test the connection from **mysql** client
+
+```
+mysql -uadmin -h<public_ip_load_balancer> -P3306 -p
+```
+
 
