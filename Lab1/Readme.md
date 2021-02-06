@@ -30,7 +30,7 @@ More informatin here: https://docs.oracle.com/en/cloud/paas/analytics-cloud/acso
 ![oac-10](img/oac-10.png)
 
 6. Configure Private Access Channel (PAC) to access MDS in the private subnet
-Configure PAC to use the **Virtual Cloud Network** and the **Private Subnet** which MDS is provisioned, this PAC will be used to access the MDS in the private subnet. ** Be sure to add the DNS zone of the private subnet of MDS **
+Configure PAC to use the **Virtual Cloud Network** and the **Private Subnet** which MDS is provisioned, this PAC will be used to access the MDS in the private subnet. **Be sure to add the DNS zone of the private subnet of MDS**
 
 ![oac-28](img/oac-28.png)
 
