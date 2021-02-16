@@ -53,7 +53,7 @@ Configure PAC to use the **Virtual Cloud Network** and the **Private Subnet** wh
 ![oac-15](img/oac-15.png)
 
 5. Specify the connections details
-Specify the hostname of MDS in FQDN such as mysql-xxx.oraclevpn.com
+Specify the hostname of MDS in FQDN such as mysql-xxx.oraclevpn.com and make sure that the mysql user is using **mysql_native_password**
 
 ![oac-29](img/oac-29.png)
 
