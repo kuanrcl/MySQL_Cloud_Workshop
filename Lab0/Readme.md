@@ -71,8 +71,8 @@ set use_secondary_engine=off
 | Queries     | Description | MySQL      | HeatWave|
 | ----------- | ----------- |----------- | ----------- |
 | Q1     | Pricing Summary      | 16.938s     |0.21s |
-| Q3     | Shipping Priority     | 5.172s    | |
-| Q4     | Order Priority Checking     | 1.218s    | |
-| Q5     | Local Supplier Volume     | 3.797s    | |
-| Q6     | Forecasting Revenue Change     | 3.297s   |3.328s |
+| Q3     | Shipping Priority     | 5.172s    | 0.04s|
+| Q4     | Order Priority Checking     | 1.218s    |0.04s |
+| Q5     | Local Supplier Volume     | 3.797s    |0.26s|
+| Q6     | Forecasting Revenue Change     | 3.297s   |0.01s |
 
