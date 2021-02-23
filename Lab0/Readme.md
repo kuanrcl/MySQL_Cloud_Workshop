@@ -1,4 +1,4 @@
-# Loading TCPH Data into HeatWave
+# Runng TPCH against MySQL HeatWave
 
 ## Generate TPCH Data
 We will be using the Oracle HeatWave github page as reference (https://github.com/oracle/heatwave-tpch)
@@ -66,5 +66,13 @@ set use_secondary_engine=on
 set use_secondary_engine=off
 ```
 
+## Results
 
+| Queries     | Description | MySQL      | HeatWave|
+| ----------- | ----------- |----------- | ----------- |
+| Q1     | Pricing Summary      | 16.938s     |0.21s |
+| Q3     | Shipping Priority     | 5.172s    | |
+| Q4     | Order Priority Checking     | 1.218s    | |
+| Q5     | Local Supplier Volume     | 3.797s    | |
+| Q6     | Forecasting Revenue Change     | 3.297s   |3.328s |
 
