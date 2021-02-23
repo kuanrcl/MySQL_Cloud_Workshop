@@ -59,7 +59,12 @@ Run the secondary_load.sql using https://github.com/oracle/heatwave-tpch/blob/ma
 ## Test the HeatWave engine
 
 You are now ready to test the power of HeatWave by running any of the TPCH queries (https://github.com/oracle/heatwave-tpch/tree/main/TPCH)
-Run the queries against MDS, then load the data into HeatWave in-memory cluster, and re-run the queries again
+
+Run the queries against MDS and compare the results with queries against HeatWave engine by using the following toggle
+```
+set use_secondary_engine=on
+set use_secondary_engine=off
+```
 
 
 
