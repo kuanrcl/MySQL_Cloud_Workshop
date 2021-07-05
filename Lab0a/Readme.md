@@ -10,9 +10,11 @@ For testing purposes, you can provision a public Load Balancer to listen on defa
 ![lb-3](img/lb-3.jpg)
 4. Specify the TCP protocol and port 3306
 ![lb-4](img/lb-4.jpg)
-5. Select TCP protocol and port 3306 for the **listener**
+5. Select TCP protocol and port 3306 for the **listener** and create the load balancer
 ![lb-5](img/lb-5.jpg)
-6. Create the load balancer
+
+## Security List
+1. Create an ingress rule to allow access to port 3306
 ![lb-6](img/lb-6.jpg)
 
 
