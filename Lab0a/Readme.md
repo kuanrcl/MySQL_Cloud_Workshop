@@ -2,13 +2,17 @@
 
 For testing purposes, you can provision a public Load Balancer to listen on default port 3306 to connect your on-premises or cloud applications to MDS
 
-1. Create a Load Balancer
+1. Create a Load Balancer by selecting the Quick Create option
 ![lb-1](img/lb-1.jpg)
-2. Specify the VCN
+2. Use the default settings
 ![lb-2](img/lb-2.jpg)
+3. 
 ![lb-3](img/lb-3.jpg)
+4. 
 ![lb-4](img/lb-4.jpg)
+5. 
 ![lb-5](img/lb-5.jpg)
+6.
 ![lb-6](img/lb-6.jpg)
 
 
